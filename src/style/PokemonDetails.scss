@@ -1,0 +1,83 @@
+.pokemonPage {
+    .topPage {
+        height: 40vh;
+
+        .bg-img {
+            &::before {
+                content: "";
+                width: 120%;
+                height: 120%;
+                position: absolute;
+                background-image: url('../img/pokeball_white.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                right: -40%;
+                bottom: -20%;
+                opacity: .2;
+            }
+        }
+    }
+
+    .bottomPage {
+        .value-bar {
+            animation: .2s ease-out 0s 1 valueTransition;
+        }
+    }
+
+    .carousel {
+
+        .carousel-control-prev {
+            order: -1;
+        }
+
+        [class^=carousel-control] {
+            position: static;
+            opacity: 1;
+            color: black;
+            height: 90%;
+        }
+    }
+
+    .indicators {
+
+        div {
+            width: 15px;
+            height: 15px;
+
+            &::before {
+                content: "";
+                width: 5px;
+                height: 5px;
+                display: block;
+                background-color: white;
+                border-radius: 50%;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+
+            &::after {
+                content: "";
+                width: 100%;
+                height: 1px;
+                display: block;
+                background-color: white;
+                border-radius: 50%;
+                position: absolute;
+                top: 7px;
+                left: 0;
+            }
+        }
+    }
+
+    @keyframes valueTransition {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+}

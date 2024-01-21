@@ -1,0 +1,151 @@
+$Grass: #9bcd5199;
+$Fire: #fd7f2699;
+$Water: #4591c480;
+$Bug: #73a04099;
+$Normal: #a3abae99;
+$Poison: #b97ec999;
+$Electric: #edd53599;
+$Ghost: #7a62a399;
+$Ice: #50c4e799;
+$Fairy: #fdbae999;
+$Fighting: #d7682399;
+$Psychic: #f368b999;
+$Rock: #a1892199;
+$Ground: #a9964299;
+$Dragon: #f16d5599;
+$Flyin: #50c4e799;
+
+$transparent-white: rgba(255, 255, 255, .3);
+$transparent-black: rgba(0, 0, 0, .2);
+
+// Types
+
+.type-Grass {
+    background-color: $Grass;
+}
+
+.type-Fire {
+    background-color: $Fire;
+}
+
+.type-Water {
+    background-color: $Water;
+}
+
+.type-Bug {
+    background-color: $Bug;
+}
+
+.type-Normal {
+    background-color: $Normal;
+}
+
+.type-Poison {
+    background-color: $Poison;
+}
+
+.type-Electric {
+    background-color: $Electric;
+}
+
+.type-Ghost {
+    background-color: $Ghost;
+}
+
+.type-Ice {
+    background-color: $Ice;
+}
+
+.type-Fairy {
+    background-color: $Fairy;
+}
+
+.type-Fighting {
+    background-color: $Fighting;
+}
+
+.type-Psychic {
+    background-color: $Psychic;
+}
+
+.type-Rock {
+    background-color: $Rock;
+}
+
+.type-Ground {
+    background-color: $Ground;
+}
+
+.type-Dragon {
+    background-color: $Dragon;
+}
+
+.type-Flyin {
+    background-color: $Flyin;
+}
+
+// Borders
+
+.border-Grass {
+    border-bottom: 3px solid $Grass;
+}
+
+.border-Fire {
+    border-bottom: 3px solid $Fire;
+}
+
+.border-Water {
+    border-bottom: 3px solid $Water;
+}
+
+.border-Bug {
+    border-bottom: 3px solid $Bug;
+}
+
+.border-Normal {
+    border-bottom: 3px solid $Normal;
+}
+
+.border-Poison {
+    border-bottom: 3px solid $Poison;
+}
+
+.border-Electric {
+    border-bottom: 3px solid $Electric;
+}
+
+.border-Ghost {
+    border-bottom: 3px solid $Ghost;
+}
+
+.border-Ice {
+    border-bottom: 3px solid $Ice;
+}
+
+.border-Fairy {
+    border-bottom: 3px solid $Fairy;
+}
+
+.border-Fighting {
+    border-bottom: 3px solid $Fighting;
+}
+
+.border-Psychic {
+    border-bottom: 3px solid $Psychic;
+}
+
+.border-Rock {
+    border-bottom: 3px solid $Rock;
+}
+
+.border-Ground {
+    border-bottom: 3px solid $Ground;
+}
+
+.border-Dragon {
+    border-bottom: 3px solid $Dragon;
+}
+
+.border-Flyin {
+    border-bottom: 3px solid $Flyin;
+}

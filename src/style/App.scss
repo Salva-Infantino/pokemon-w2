@@ -1,0 +1,35 @@
+$transparent-white: rgba(255, 255, 255, .3);
+
+#root {
+    overflow: hidden;
+}
+
+nav svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.w-h-25 {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.w-35 {
+    width: 35%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.pokemon-type {
+    background-color: $transparent-white;
+}
+
+.hidden {
+    transform: scale(0);
+}
+
+@import url("./Colors.scss");
+@import url("./List.scss");
+@import url("./PokemonDetails.scss");

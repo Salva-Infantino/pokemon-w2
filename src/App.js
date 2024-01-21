@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Modifier ici
 
-function App() {
+import Header from './components/Header';
+import Favorites from './components/Favorites';
+import PokemonList from './components/PokemonList';
+import PokemonDetail from './components/PokemonDetail'; // Assurez-vous d'importer le composant PokemonDetail
+import ErrorPage from './components/ErrorPage';
+
+import data from './doc/pokedex.json';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes> {/* Modifier ici */}
+        <Route path="/" element={<PokemonList data={data} />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/pokemon/:id" element={<PokemonDetail />} /> {/* Ajoutez cette ligne */}
+         <Route path="/error" element={<ErrorPage />} /> {/* Route par défaut pour les erreurs 404 */}
+         <Route path="/*" element={<ErrorPage />} /> {/* Route par défaut pour les erreurs 404 */}
+      </Routes> {/* Modifier ici */}
+    </Router>
   );
 }
 
