@@ -1,10 +1,13 @@
 .pokemon-card {
     min-height: 11rem;
 
+    .flex-carousel-row {
+            flex-direction: column;
+        }
     img {
         bottom: -10px;
         right: -10px;
-        width: 40%;
+        width: 50%;
     }
 
     &::before {
@@ -19,5 +22,18 @@
         right: -30%;
         bottom: -20%;
         opacity: .2;
+    }
+}
+@media (min-width: 768px) {
+    .pokemon-card {
+        .flex-carousel-row {
+            flex-direction: row;
+        }
+
+        img.w-carousel {
+            bottom: -10px;
+            right: 80px;
+            width: 35%;
+        }
     }
 }

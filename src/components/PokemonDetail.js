@@ -53,7 +53,7 @@ const PokemonDetail = () => {
   return (
     <div className={`App pokemonPage type-${pokemonDetails.Types[0]}`}>
             <Container className='text-white topPage'>
-                <div className='d-flex justify-content-between'>
+                <div className='d-flex justify-content-between pt-4'>
                     <h1>{pokemonDetails.Name}</h1>
                     <span className='d-block fw-light text-end display-1 opacity-50'>#{formatId(pokemonDetails.Id)}</span>
                 </div>

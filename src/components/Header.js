@@ -17,7 +17,7 @@ const Header = () => {
   const [bgColor, setBgColor] = useState('');
   
   useEffect(() => {
-    pokemonId && setBgColor(data.find(x => x.Id === Number(removeLeadingZeros(pokemonId))).Types[0])
+    pokemonId && setBgColor(data.find(x => x.Id === Number(removeLeadingZeros(pokemonId)))?.Types[0])
   }, [pokemonId])
 
   useEffect(() => {
@@ -51,6 +51,8 @@ const Header = () => {
     setIsFavorite((prevValue) => !prevValue);
   };
 
+  document.querySelector('#root').classList.remove('overflow-hidden');
+
   const renderHeaderContent = () => {
 
     // Ne pas afficher le header sur la page d'erreur
@@ -67,6 +69,9 @@ const Header = () => {
           </>
         );
       case `/pokemon/${pokemonId}`:
+
+        document.querySelector('#root').classList.add('overflow-hidden');
+
         return (
           <>
             <Link to="/" className='d-flex justify-content-center align-items-center text-white'><FaArrowLeftLong /></Link>

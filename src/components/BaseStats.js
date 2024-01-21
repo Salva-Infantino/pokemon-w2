@@ -1,6 +1,6 @@
 const BaseStats = ({pokemon}) => {
 
-    const maxValue = 255;
+    const maxValue = 200;
 
     const getWidthByValue = (value) => {
         return value / (maxValue / 100);
