@@ -8,6 +8,6 @@ export const removeLeadingZeros = (id) => {
 }
 
 export const getImage = (id) => {
-  const url = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'
+  const url = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
   return url + formatId(id) + '.png';
 }

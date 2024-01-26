@@ -9,13 +9,14 @@ import Evolution from './Evolution';
 
 import { formatId, getImage } from '../utils/Utils';
 
-import { Container, Image } from 'react-bootstrap';
+import { Container, Image, Spinner } from 'react-bootstrap';
 
 const PokemonDetail = () => {
   const { id } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState(null);
   const [evolution, setEvolution] = useState([]);
   const [pokemonExists, setPokemonExists] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const nav = ['About', 'Base Stats', 'Evolution'];
   const [activeNav, setActiveNav] = useState(nav[0]);
@@ -45,34 +46,39 @@ const PokemonDetail = () => {
         return <Navigate to="/error" />;
     }
 
-  if (!pokemonDetails) {
-    // Si les détails du Pokémon ne sont pas encore chargés, vous pouvez afficher un indicateur de chargement
-    return <p>Chargement...</p>;
-  }
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    };
+
+    //   if (!pokemonDetails) {
+    //     // Si les détails du Pokémon ne sont pas encore chargés, vous pouvez afficher un indicateur de chargement
+    //     return <p>Chargement...</p>;
+    //   }
 
   return (
-    <div className={`App pokemonPage type-${pokemonDetails.Types[0]}`}>
+    <div className={`App pokemonPage type-${pokemonDetails?.Types[0]}`}>
             <Container className='text-white topPage'>
                 <div className='d-flex justify-content-between pt-4'>
-                    <h1>{pokemonDetails.Name}</h1>
-                    <span className='d-block fw-light text-end display-1 opacity-50'>#{formatId(pokemonDetails.Id)}</span>
+                    <h1>{pokemonDetails?.Name}</h1>
+                    <span className='d-block fw-light text-end display-1 opacity-50'>#{formatId(pokemonDetails?.Id)}</span>
                 </div>
                 {
-                    pokemonDetails.Types.map(type => {
-                        return <small key={pokemonDetails.Id+type} className='badge rounded-pill m-1 pokemon-type'>{type}</small>
+                    pokemonDetails?.Types.map(type => {
+                        return <small key={pokemonDetails?.Id+type} className='badge rounded-pill m-1 pokemon-type'>{type}</small>
                     })
                 }
-                <div className='d-flex justify-content-center align-items-center bg-img position-relative z-2'>
-                    <Image src={getImage(pokemonDetails.Id)} alt={pokemonDetails.Name} style={{transform: "translateY(5%)"}} />
+                <div className={`d-flex justify-content-center align-items-center ${imageLoaded ? 'bg-img' : ''} position-relative z-2`}>
+                    {!imageLoaded && <Spinner animation="border" className='mt-5' variant="light" />}
+                    <Image src={getImage(pokemonDetails?.Id)} alt={pokemonDetails?.Name} onLoad={handleImageLoad} className={imageLoaded ? 'd-block' : 'd-none'} style={{transform: "translateY(5%)"}} />
                 </div>
             </Container>
             <Container className='pt-5 rounded-top-5 bottomPage bg-white position-relative z-1'>
-                <div className='d-flex justify-content-between align-items-center mb-4'>
+                <div className='d-flex justify-content-between justify-content-sm-around align-items-center mb-4'>
                     {
                         nav.map(item => {
                             return <div 
                                     key={item} 
-                                    className={`p-2 ${item === activeNav ? 'text-black border-'+pokemonDetails.Types[0] : 'text-secondary border-bottom'}`}
+                                    className={`p-2 ${item === activeNav ? 'text-black border-'+pokemonDetails?.Types[0] : 'text-secondary border-bottom'}`}
                                     onClick={() => setActiveNav(item)}>
                                         {item}
                                 </div>

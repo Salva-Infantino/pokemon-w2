@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { formatId, getImage } from '../utils/Utils';
 
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, Image, Spinner} from 'react-bootstrap';
 
 import { RxCross1 } from "react-icons/rx";
 
 const PokemonList = ({ data, disableSearch, carousel }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   let filteredPokemon;
 
   // Filtrer les Pokémon en fonction du terme de recherche
@@ -23,6 +25,10 @@ const PokemonList = ({ data, disableSearch, carousel }) => {
   } else {
     filteredPokemon = [data];
   }
+
+  const handleImageLoad = () => {
+        setImageLoaded(true);
+    };
 
   return (
     <div className={!carousel ? "container" : ""}>
@@ -45,7 +51,8 @@ const PokemonList = ({ data, disableSearch, carousel }) => {
                     return <span key={i} className='badge rounded-pill m-1 bg-white bg-opacity-25'>{type}</span>
                   })}
                 </div>
-                <img src={getImage(pokemon.Id)} alt={pokemon.Name} className={`${carousel ? 'w-carousel' : ''} position-absolute`}/>
+                {!imageLoaded && <Spinner animation="border" variant="light" className='position-absolute end-0 me-5' />}
+                <Image src={getImage(pokemon.Id)} alt={pokemon.Name} onLoad={handleImageLoad} className={`${imageLoaded ? 'd-block' : 'd-none'} ${carousel ? 'w-carousel' : ''} position-absolute`}/>
               </div>
             </Link>
           </Col>

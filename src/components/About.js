@@ -21,19 +21,19 @@ const About = ({pokemon}) => {
             <div className="About">
                 <div className="d-flex mb-2">
                     <div className="text-secondary w-35">Category</div>
-                    <div>{pokemon.Category}</div>
+                    <div>{pokemon?.Category}</div>
                 </div>
                 <div className="d-flex mb-2">
                     <div className="text-secondary w-35">Height</div>
-                    <div>{pokemon.Height}</div>
+                    <div>{pokemon?.Height}</div>
                 </div>
                 <div className="d-flex mb-2">
                     <div className="text-secondary w-35">Weight</div>
-                    <div>{pokemon.Weight}</div>
+                    <div>{pokemon?.Weight}</div>
                 </div>
                 <div className="d-flex mb-2">
                     <div className="text-secondary w-35">Ability</div>
-                    <div>{getFirstWord(pokemon.Ability)}</div>
+                    <div>{pokemon && getFirstWord(pokemon.Ability)}</div>
                 </div>
             </div>
         )
