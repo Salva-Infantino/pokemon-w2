@@ -69,7 +69,7 @@ const PokemonDetail = () => {
                 }
                 <div className={`d-flex justify-content-center align-items-center ${imageLoaded ? 'bg-img' : ''} position-relative z-2`}>
                     {!imageLoaded && <Spinner animation="border" className='mt-5' variant="light" />}
-                    <Image src={getImage(pokemonDetails?.Id)} alt={pokemonDetails?.Name} onLoad={handleImageLoad} className={imageLoaded ? 'd-block' : 'd-none'} style={{transform: "translateY(5%)"}} />
+                    <Image src={getImage(pokemonDetails?.Id)} alt={pokemonDetails?.Name} onLoad={handleImageLoad} className={imageLoaded ? 'd-block' : 'd-none'} />
                 </div>
             </Container>
             <Container className='pt-5 rounded-top-5 bottomPage bg-white position-relative z-1'>

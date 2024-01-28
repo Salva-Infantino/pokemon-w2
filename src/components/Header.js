@@ -1,7 +1,7 @@
 // src/components/Header.js
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { removeLeadingZeros } from '../utils/Utils';
+import { removeLeadingZeros, formatId } from '../utils/Utils';
 import data from '../doc/pokedex.json';
 
 import { Container, Navbar } from 'react-bootstrap';
@@ -25,7 +25,7 @@ const Header = () => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     // Vérifier si l'ID du Pokémon actuel est présent dans la liste des favoris
-    const isPokemonFavorite = favorites.includes(removeLeadingZeros(pokemonId));
+    const isPokemonFavorite = favorites.includes(formatId(pokemonId));
 
     // Mettre à jour l'état isFavorite en conséquence
     setIsFavorite(isPokemonFavorite);
